@@ -174,9 +174,11 @@ class _MainScreenState extends State<MainScreen> {
                 if (name != "") {
                   DocumentSnapshot snap = await FirebaseFirestore.instance
                       .collection("UserTokens")
-                      .doc(name)
+                      .doc('User1')
                       .get();
 
+                  // String token =
+                  //     'd6YGAguORBqqXdp-Y5ajg_:APA91bFdpWBiOmcRCLdgKW__CA2Qug1Z0LE0lxqNdE_gBaN1KDXUc87CrPWZtfRir0ACBtIqS0U7y68sRdM_qqcNWfdoZb4rqlMhERE9XmaeiD6idE-QLG5Gfsb1szaQXm7RdegKohHy';
                   String token = snap['token'];
                   log(token);
                   sendPushMessage(token, titleText, bodyText);
